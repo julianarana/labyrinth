@@ -1,0 +1,7 @@
+.board {
+  display: grid;
+  grid-template-columns: 50px repeat(9, 1fr);
+  height: fit-content;
+  position: relative;
+  width: fit-content;
+}
