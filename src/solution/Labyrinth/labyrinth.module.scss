@@ -1,5 +1,22 @@
-
-
 .info {
   position: relative;
+  display: flex;
+  width: 100%;
+
+  &__status {
+    font-weight: bold;
+    flex-basis: 50%;
+
+    &__lost {
+      color: #FF342D;
+    }
+
+    &__won {
+      color: #4F9C49;
+    }
+  }
+
+  &__moves{
+    flex-basis: 50%
+  }
 }

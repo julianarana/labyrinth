@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
+import { Movement } from '../types';
 
-export const useKeyPressed = (targetValue: number): boolean => {
+export const useKeyPressed = (targetValue: Movement): boolean => {
   const [state, setState] = useState<boolean>(false);
 
   const keyDownHandler = (event: KeyboardEvent): void => {
-    //console.log(event, event.keyCode, event.charCode)
-    if (event.keyCode === targetValue) {
+    if (event.key === targetValue) {
       setState(true);
     }
   };
   const keyUpHandler = (event: KeyboardEvent): any => {
-    if (event.keyCode === targetValue) {
+    if (event.key === targetValue) {
       setState(false);
     }
   };

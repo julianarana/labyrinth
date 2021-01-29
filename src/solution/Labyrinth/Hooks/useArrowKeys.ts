@@ -2,23 +2,18 @@ import { useEffect, useState } from 'react';
 import { Movement, MovementType } from '../types';
 import { useKeyPressed } from './useKeyPress';
 
-export const DOWN_KEY = 40;
-export const UP_KEY = 38;
-export const LEFT_KEY = 37;
-export const RIGHT_KEY = 39;
-
 export const useArrowKeys = (): MovementType => {
   const [lastPressed, setLastPressed] = useState<Movement>(null);
 
-  const downPressed = useKeyPressed(DOWN_KEY);
-  const upPressed = useKeyPressed(UP_KEY);
-  const leftPressed = useKeyPressed(LEFT_KEY);
-  const rightPressed = useKeyPressed(RIGHT_KEY);
+  const downPressed = useKeyPressed(Movement.DOWN);
+  const upPressed = useKeyPressed(Movement.UP);
+  const leftPressed = useKeyPressed(Movement.LEFT);
+  const rightPressed = useKeyPressed(Movement.RIGHT);
 
   useEffect(() => {
     if (!downPressed && lastPressed === Movement.DOWN) {
       setLastPressed(null);
-    } else if (downPressed && lastPressed !== DOWN_KEY) {
+    } else if (downPressed && lastPressed !== Movement.DOWN) {
       setLastPressed(Movement.DOWN);
     }
   }, [downPressed]);
@@ -26,7 +21,7 @@ export const useArrowKeys = (): MovementType => {
   useEffect(() => {
     if (!upPressed && lastPressed === Movement.UP) {
       setLastPressed(null);
-    } else if (upPressed && lastPressed !== UP_KEY) {
+    } else if (upPressed && lastPressed !== Movement.UP) {
       setLastPressed(Movement.UP);
     }
   }, [upPressed]);
@@ -34,7 +29,7 @@ export const useArrowKeys = (): MovementType => {
   useEffect(() => {
     if (!leftPressed && lastPressed === Movement.LEFT) {
       setLastPressed(null);
-    } else if (leftPressed && lastPressed !== UP_KEY) {
+    } else if (leftPressed && lastPressed !== Movement.LEFT) {
       setLastPressed(Movement.LEFT);
     }
   }, [leftPressed]);
@@ -42,7 +37,7 @@ export const useArrowKeys = (): MovementType => {
   useEffect(() => {
     if (!rightPressed && lastPressed === Movement.RIGHT) {
       setLastPressed(null);
-    } else if (rightPressed && lastPressed !== UP_KEY) {
+    } else if (rightPressed && lastPressed !== Movement.RIGHT) {
       setLastPressed(Movement.RIGHT);
     }
   }, [rightPressed]);

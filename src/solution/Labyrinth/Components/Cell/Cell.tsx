@@ -21,11 +21,14 @@ const Cell = ({
   isTarget,
   isToken,
 }: CellProps): ReactElement => {
+
   return (
     <div
+      data-testid="cell"
       className={cx('cell', { available, target: isTarget, start: isStarting })}
+      style={{ height: `${size}px`, width: `${size}px` }}
     >
-      {isToken && <div className={cx('token')}></div>}
+      {isToken && <div data-testid="token" className={cx('token')}></div>}
     </div>
   );
 };

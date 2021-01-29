@@ -48,7 +48,6 @@ export const useLabyrinthState = (
     ) {
       const won = hasWon(position, targetPosition);
       const lost = hasLost(state.movements, moveLimit, won);
-      console.log(won, lost, state.movements, moveLimit);
       setState((oldState) => ({
         ...oldState,
         position,
@@ -109,4 +108,4 @@ const hasLost = (
   currentMovements: number,
   maxMovements: number,
   won: boolean
-): boolean => !won && currentMovements >= maxMovements;
+): boolean => !won && currentMovements >= maxMovements -1;

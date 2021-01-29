@@ -56,15 +56,20 @@ const Labyrinth = ({
         startingPosition={startingPosition}
       />
       <div className={cx('info')}>
-        <div data-testid="position-ball">position ball</div>
-        <div data-testid="cell">cell</div>
-        <div data-testid="moves-message">Movements: {movements}</div>
-        <div data-testid="lose-message">{lost && `You lost :'(`}</div>
-        <div data-testid="win-message">{won && 'You won :)'}</div>
-        <div data-testid="win-message">
-          n x m = {cols} x {rows}
+        <div className={cx('info__status')}>
+          {lost && <div data-testid="lose-message" className={cx('info__status__lost')}>
+            You lost :(
+          </div>}
+          {won && <div data-testid="win-message" className={cx('info__status__won')}>
+            You won :)
+          </div>}
+        </div>
+        <div data-testid="moves-message" className={cx('infor__moves')}>
+          Moves left: {moveLimit - movements}
         </div>
       </div>
+      <div data-testid="position-ball">position ball</div>
+      <div data-testid="cell">cell</div>
     </div>
   );
 };

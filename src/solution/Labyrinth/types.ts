@@ -9,8 +9,8 @@ export type Position = [/** row */ number, /** col */ number];
 export type MovementType = Movement | null;
 
 export enum Movement {
-  UP,
-  DOWN,
-  LEFT,
-  RIGHT,
+  UP = 'ArrowUp',
+  DOWN = 'ArrowDown',
+  LEFT = 'ArrowLeft',
+  RIGHT = 'ArrowRight',
 }
