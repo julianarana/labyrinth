@@ -7,19 +7,22 @@ interface LabyrinthStoreState {
   reset: () => void;
   rows: number;
   state: LabyrinthState;
+  toggleFog: () => void;
 }
 
 interface LabyrinthState {
-  position: Position;
-  movements: number;
+  displayFog: boolean;
   lost: boolean;
+  movements: number;
+  position: Position;
   won: boolean;
 }
 
 const INITIAL_STATE: LabyrinthState = {
-  position: [0, 0],
-  movements: 0,
+  displayFog: false,
   lost: false,
+  movements: 0,
+  position: [0, 0],
   won: false,
 };
 
@@ -79,7 +82,11 @@ export const useLabyrinthState = (
     setState(INITIAL_STATE);
   };
 
-  return { cols, rows, state, move, reset };
+  const toggleFog = (): void => {
+    setState((oldState) => ({ ...oldState, displayFog: !oldState.displayFog }));
+  };
+
+  return { cols, rows, state, move, reset, toggleFog };
 };
 
 const isValidPosition = (
@@ -108,4 +115,4 @@ const hasLost = (
   currentMovements: number,
   maxMovements: number,
   won: boolean
-): boolean => !won && currentMovements >= maxMovements -1;
+): boolean => !won && currentMovements >= maxMovements - 1;

@@ -1,8 +1,16 @@
-.info {
-  position: relative;
+.labyrinth {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  margin: auto;
+  padding: 1.5rem;
+  width: fit-content;
+}
 
+.info {
+  display: flex;
+  padding: 1rem 0;
+  position: relative;
+  
   &__status {
     font-weight: bold;
     flex-basis: 50%;
@@ -16,7 +24,13 @@
     }
   }
 
-  &__moves{
-    flex-basis: 50%
+  &__moves {
+    flex-basis: 50%;
+    text-align: right;
   }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
